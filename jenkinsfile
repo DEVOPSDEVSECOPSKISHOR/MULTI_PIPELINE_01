@@ -18,6 +18,13 @@ pipeline {
                 script{
                     configFile="$WORKSPACE/config.properties"
                     config=[:]
+                    try{
+                        config = readProperties file: configFile
+                    }
+                    catch (Expeption e){
+                            echo "Failed to load properties file: ${e.message}"
+                            error("Failed to load properties file: ${e.message}")
+                    }
                     echo configFile
                     echo config
                     env.CONFIGFILE=configFile
