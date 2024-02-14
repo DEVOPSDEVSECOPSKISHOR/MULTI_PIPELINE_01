@@ -3,7 +3,7 @@ def config = [:]
 def user="username"
 def passwd="password"
 try{
-config = readProperties file : configFile
+config = readProperties file: configFile
 }
 catch (Exception e) {
 echo "failed to load properties file ${e.message}"
