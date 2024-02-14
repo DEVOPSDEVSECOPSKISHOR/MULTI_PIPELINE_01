@@ -36,6 +36,7 @@ pipeline {
         case "default" :
             echo "Invalid entry"
         }
+            echo companyname
             env.WORKSPACE = workspace
             env.CONFIGFILE = configFile
             def configFilePath = "${WORKSPACE}/${configFile}" // Correct file path
