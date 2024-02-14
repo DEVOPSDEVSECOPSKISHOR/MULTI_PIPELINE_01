@@ -70,10 +70,12 @@ steps{
     dir ('secondary_Repositry'){
     script{
                         GitUrlSecondary= config[companyname + '.url']
-                        git branch: 'main', url: GitUrlSecondary
+                        
 
         }
-    }
+  
+git branch: 'main', url: GitUrlSecondary
+  }
 }
 }
 }
