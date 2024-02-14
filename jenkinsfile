@@ -1,35 +1,16 @@
-def configFile = 'config.properties'
-def config = [:]
-
-// Load properties file
-try {
-    config = readProperties file: configFile
-} catch (Exception e) {
-    echo "Failed to load properties file: ${e.message}"
-    error("Failed to load properties file: ${e.message}")
-}
-
-// Use the properties from the file
-def username = config['username']
-def password = config['password']
-def someVariable = config['someVariable']
-
-// Use Jenkins credentials for sensitive information
-def credentialsId = 'your-credentials-id'
-def secretText = credentials(credentialsId)
-
 pipeline {
     agent any
     stages {
-        stage('Example') {
+        stage('Stage@1') {
             steps {
-                // Use variables loaded from the properties file
-                echo "Username: ${username}"
-                echo "Password: ${password}"
-                echo "Some Variable: ${someVariable}"
-                // Use credentials loaded from Jenkins credentials
-                echo "Secret Text: ${secretText}"
-            }
+                git branch: 'main', url: 'https://github.com/DEVOPSDEVSECOPSKISHOR/MULTI_PIPELINE_01.git'
+               }
         }
+        stage('stage@2'){
+            steps{
+                sh '''
+                     echo "$WORKSPACE"
+                '''    
+}    
     }
 }
