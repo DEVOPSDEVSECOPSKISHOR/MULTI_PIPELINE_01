@@ -17,6 +17,11 @@ pipeline {
     agent any
 
     stages {
+stage('stage-checkout'){
+    steps{
+    git branch: 'main', url: 'https://github.com/DEVOPSDEVSECOPSKISHOR/MULTI_PIPELINE_01.git'
+}
+}
         stage('stage-01') {
             steps {
 script{
