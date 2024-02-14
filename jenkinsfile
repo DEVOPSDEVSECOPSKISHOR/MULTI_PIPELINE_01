@@ -40,18 +40,9 @@ pipeline {
             
             echo "Loaded config:"
             env.CONFIG=config
-            UserName=config[username]
-            PassWord=config[password]
-            env.USERNAME=UserName
-            env.PASSWORD=PassWord
-            sh '''
-                echo 
-                cat $CONFIGFILE
-                echo "$CONFIG"
-                echo "$USERNAME"
-                echo "$PASSWORD"
-                
-            '''
+            UserName=config['username']
+            PassWord=config['password']
+            echo UserName
         }
     }
 }
