@@ -17,7 +17,7 @@ steps{
 script{
 def configFile="config.properties"
 def config = [:]
-def user="username"
+def username="username"
 def passwd="password"
 try{
 config = readProperties file: configFile
@@ -34,9 +34,11 @@ error "Failed to laod properties file ${e.message}"
         stage('stage-01') {
             steps {
 script{
-                    env.USER=user
+                    env.USER=username
+                    env.PASS=passwd
                 sh '''
                     echo "credentials $USER"
+                    echo "passeord is $PASS"
                 '''
             }
             }
