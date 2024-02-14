@@ -20,6 +20,8 @@ configFile="config.properties"
 config = [:]
 username=config['username']
 passwd=config['password']
+echo username
+echo passwd
 try{
 config = readProperties file: configFile
 }
