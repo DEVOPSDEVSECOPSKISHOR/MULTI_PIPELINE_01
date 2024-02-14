@@ -1,3 +1,20 @@
+
+
+
+pipeline {
+    agent any
+
+    stages {
+
+stage('stage-checkout'){
+    steps{
+    cleanWS();
+    git branch: 'main', url: 'https://github.com/DEVOPSDEVSECOPSKISHOR/MULTI_PIPELINE_01.git'
+}
+}
+stage('condotion'){
+steps{
+script{
 def configFile="config.properties"
 def config = [:]
 def user="username"
@@ -11,16 +28,7 @@ error "Failed to laod properties file ${e.message}"
 
 
 }
-
-
-pipeline {
-    agent any
-
-    stages {
-stage('stage-checkout'){
-    steps{
-    cleanWS();
-    git branch: 'main', url: 'https://github.com/DEVOPSDEVSECOPSKISHOR/MULTI_PIPELINE_01.git'
+}
 }
 }
         stage('stage-01') {
