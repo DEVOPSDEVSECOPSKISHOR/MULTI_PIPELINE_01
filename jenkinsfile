@@ -17,7 +17,9 @@ pipeline {
             steps{
                 script{
                     configFile="$WORKSPACE/config.properties"
+                    config=[:]
                     echo configFile
+                    echo config
                     env.CONFIGFILE=configFile
                     sh '''
                         cat $CONFIGFILE
