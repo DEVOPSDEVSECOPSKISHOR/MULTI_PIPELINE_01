@@ -23,10 +23,11 @@ pipeline {
         stage('stage@3'){
             steps{
                 script{
+env.WORKSPACE = workspace
                     
                     
                     try {
-                        config = readProperties file: configFile
+                        config = readProperties file: workspace/configFile
                         } catch (Exception e) {
                         echo "Failed to load properties file: ${e.message}"
                         error("Failed to load properties file: ${e.message}")
