@@ -1,7 +1,7 @@
 def username
 def password
-
-
+def configFile
+def config
 pipeline {
     agent any
 
@@ -16,10 +16,10 @@ stage('stage-checkout'){
 stage('condotion'){
 steps{
 script{
-def configFile="config.properties"
-def config = [:]
-def username=config['username']
-def passwd=config['password']
+configFile="config.properties"
+config = [:]
+username=config['username']
+passwd=config['password']
 try{
 config = readProperties file: configFile
 }
