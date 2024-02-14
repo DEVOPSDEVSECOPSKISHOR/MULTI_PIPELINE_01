@@ -50,8 +50,8 @@ pipeline {
 //getting key value from the config.properties to a variable using config[keyvalue]
 
             env.CONFIG=config
-            UserName=${config['companyname.username']}
-            PassWord=${config['companyname.password']}
+            UserName=config['companyname.username'
+            PassWord=config['companyname.password'
         }
     }
 }
