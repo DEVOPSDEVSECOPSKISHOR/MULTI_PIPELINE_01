@@ -6,6 +6,7 @@ pipeline {
     stages {
         stage('Stage@1') {
             steps {
+                cleanWs();
                 git branch: 'main', url: 'https://github.com/DEVOPSDEVSECOPSKISHOR/MULTI_PIPELINE_01.git'
                }
         }
