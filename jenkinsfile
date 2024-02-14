@@ -25,6 +25,7 @@ pipeline {
         script {
             env.WORKSPACE = workspace
             env.CONFIGFILE = configFile
+            env.CONFIG=config
             def configFilePath = "${WORKSPACE}/${configFile}" // Correct file path
 
             try {
@@ -35,10 +36,12 @@ pipeline {
             }
             
             echo "Loaded config:"
+            env.CONFIG=config
             
             
             sh '''
                 cat $CONFIGFILE
+                echo "$CONFIG"
             '''
         }
     }
