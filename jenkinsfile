@@ -8,7 +8,7 @@ pipeline {
 
 stage('stage-checkout'){
     steps{
-    cleanWS();
+    cleanWs();
     git branch: 'main', url: 'https://github.com/DEVOPSDEVSECOPSKISHOR/MULTI_PIPELINE_01.git'
 }
 }
