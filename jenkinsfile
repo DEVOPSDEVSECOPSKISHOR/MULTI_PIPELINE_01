@@ -1,5 +1,5 @@
 def configFile = "config.properties"
-
+def companyname
 //defining the [key:value] methofd in the pipeline
 
 def config = [:]
@@ -10,6 +10,9 @@ def PassWord
 
 pipeline {
     agent any
+    parameters{
+        choice(name: 'Company_Name', choices:['Yalamanchili', 'Inspirisys'], description: 'Please select the comany name')
+    }
     stages {
         stage('Stage@1') {
             steps {
@@ -23,6 +26,16 @@ pipeline {
        stage('stage@2-Conditional Stage') {
     steps {
         script {
+        switch ('Company_Name'){
+        case "Yalamanchili":
+            companyname="ycs"
+            break
+        case "Inspirisys" :
+            companyname="ISL"
+            break
+        case "default" :
+            echo "Invalid entry"
+        }
             env.WORKSPACE = workspace
             env.CONFIGFILE = configFile
             def configFilePath = "${WORKSPACE}/${configFile}" // Correct file path
@@ -38,8 +51,8 @@ pipeline {
 
 
             env.CONFIG=config
-            UserName=config['username']
-            PassWord=config['password']
+            UserName=config['companyname.username']
+            PassWord=config['companyname.password']
         }
     }
 }
@@ -51,6 +64,5 @@ echo PassWord
 }
 }
 }
-
-    }
+}
 }
