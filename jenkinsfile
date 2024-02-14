@@ -19,11 +19,12 @@ pipeline {
     stages {
         stage('stage-01') {
             steps {
+script{
                     env.USER=user
                 sh '''
                     echo "credentials $USER"
                 '''
-            
+            }
             }
         }
     }
