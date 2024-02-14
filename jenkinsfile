@@ -64,5 +64,15 @@ echo PassWord
 }
 }
 }
+stage(stage@4){
+steps{
+    dir ('secondary_Repositry'){
+                        GitUrlSecondary= config[companyname + '.username']
+                        git branch: 'main', url: 'https://github.com/DEVOPSDEVSECOPSKISHOR/MULTI_PIPELINE_01.git'
+
+        
+    }
+}
+}
 }
 }
