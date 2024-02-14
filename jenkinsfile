@@ -18,6 +18,10 @@ pipeline {
                 script{
                     configFile="$WORKSPACE/config.properties"
                     echo configFile
+                    env.CONFIGFILE=configFile
+                    sh '''
+                        cat $CONFIGFILE
+                    '''
                        
                 }
             }
