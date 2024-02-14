@@ -1,8 +1,12 @@
 def configFile = "config.properties"
-def config = [:]
 
+//defining the [key:value] methofd in the pipeline
+
+def config = [:]
 def UserName
 def PassWord
+
+//here checkouting the github code to the jenkins server
 
 pipeline {
     agent any
@@ -13,21 +17,26 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/DEVOPSDEVSECOPSKISHOR/MULTI_PIPELINE_01.git'
             }
         }
-        
+
+        // In this second stage   defining the config.properties file and using try catch method in the try calling the readProperties   getting key:value to the jenkins file from the config.properties file
+
        stage('stage@2-Conditional Stage') {
     steps {
         script {
             env.WORKSPACE = workspace
             env.CONFIGFILE = configFile
             def configFilePath = "${WORKSPACE}/${configFile}" // Correct file path
-
             try {
                 config = readProperties file: configFilePath // Read properties from file
             } catch (Exception e) {
                 echo "Failed to load properties file: ${e.message}"
                 error("Failed to load properties file: ${e.message}")
             }
-            
+
+
+//getting key value from the config.properties to a variable using config[keyvalue]
+
+
             env.CONFIG=config
             UserName=config['username']
             PassWord=config['password']
