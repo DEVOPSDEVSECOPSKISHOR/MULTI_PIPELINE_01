@@ -31,7 +31,7 @@ pipeline {
             companyname="ycs"
             break
         case "Inspirisys" :
-            companyname="ISL"
+            companyname="Isl"
             break
         case "default" :
             echo "Invalid entry"
@@ -51,8 +51,8 @@ pipeline {
 
 
             env.CONFIG=config
-            UserName=config['companyname.username']
-            PassWord=config['companyname.password']
+            UserName=config['$companyname.username']
+            PassWord=config['$companyname.password']
         }
     }
 }
