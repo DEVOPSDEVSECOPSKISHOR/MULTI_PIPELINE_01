@@ -8,39 +8,39 @@ pipeline {
             steps {
                 cleanWs();
                 git branch: 'main', url: 'https://github.com/DEVOPSDEVSECOPSKISHOR/MULTI_PIPELINE_01.git'
-               }
+            }
         }
-        stage('stage@2'){
-            steps{
-                script{
-                env.WORKSPACE = workspace
-                sh '''
-                     echo "$WORKSPACE"
-                '''    
-}    
-}
-    }
-        stage('stage@3'){
-            steps{
-                script{
-env.WORKSPACE = workspace
-                    
-                    
+        stage('stage@2') {
+            steps {
+                script {
+                    env.WORKSPACE = workspace
+                    sh '''
+                        echo "$WORKSPACE"
+                    '''
+                }
+            }
+        }
+        stage('stage@3') {
+            steps {
+                script {
+                    env.WORKSPACE = workspace
+                    def configFilePath = "${WORKSPACE}/${configFile}" // Correct file path
+
                     try {
-                        config = readProperties file: 'workspace/configFile'
-                        } catch (Exception e) {
+                        config = readProperties file: configFilePath // Read properties from file
+                    } catch (Exception e) {
                         echo "Failed to load properties file: ${e.message}"
                         error("Failed to load properties file: ${e.message}")
                     }
+                    
                     echo configFile
-                    echo config
-                    env.CONFIGFILE=configFile
+                    echo config // Echo the contents of the config map
+                    env.CONFIGFILE = configFile
                     sh '''
                         cat $CONFIGFILE
                     '''
-                       
                 }
             }
-}
-}
+        }
+    }
 }
