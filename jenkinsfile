@@ -1,6 +1,9 @@
 def configFile = "config.properties"
 def config = [:]
 
+def UserName
+def PassWord
+
 pipeline {
     agent any
     stages {
@@ -37,11 +40,17 @@ pipeline {
             
             echo "Loaded config:"
             env.CONFIG=config
-            
-            
+            UserName=config[username]
+            PassWord=config[password]
+            env.USERNAME=UserName
+            env.PASSWORD=PassWord
             sh '''
+                echo 
                 cat $CONFIGFILE
                 echo "$CONFIG"
+                echo "$USERNAME"
+                echo "PASSWORD"
+                
             '''
         }
     }
