@@ -1,4 +1,5 @@
-
+def username
+def password
 
 
 pipeline {
@@ -17,8 +18,8 @@ steps{
 script{
 def configFile="config.properties"
 def config = [:]
-def username="username"
-def passwd="password"
+def username=config['username']
+def passwd=config['password']
 try{
 config = readProperties file: configFile
 }
