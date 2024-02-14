@@ -13,22 +13,12 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/DEVOPSDEVSECOPSKISHOR/MULTI_PIPELINE_01.git'
             }
         }
-        stage('stage@2') {
-            steps {
-                script {
-                    env.WORKSPACE = workspace
-                    sh '''
-                        echo "$WORKSPACE"
-                    '''
-                }
-            }
-        }
-       stage('stage@3') {
+        
+       stage('stage@2-Conditional Stage') {
     steps {
         script {
             env.WORKSPACE = workspace
             env.CONFIGFILE = configFile
-            env.CONFIG=config
             def configFilePath = "${WORKSPACE}/${configFile}" // Correct file path
 
             try {
@@ -38,13 +28,19 @@ pipeline {
                 error("Failed to load properties file: ${e.message}")
             }
             
-            echo "Loaded config:"
             env.CONFIG=config
             UserName=config['username']
             PassWord=config['password']
-            echo UserName
         }
     }
+}
+stage('stage@3'){
+steps{
+script{
+echo UserName
+echo PassWord
+}
+}
 }
 
     }
