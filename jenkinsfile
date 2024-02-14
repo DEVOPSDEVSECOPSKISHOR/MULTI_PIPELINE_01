@@ -65,7 +65,7 @@ echo PassWord
 }
 }
 }
-stage(stage@4){
+stage('stage@4'){
 steps{
     dir ('secondary_Repositry'){
                         GitUrlSecondary= config[companyname + '.url']
