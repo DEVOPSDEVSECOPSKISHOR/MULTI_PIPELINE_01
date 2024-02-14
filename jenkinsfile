@@ -51,7 +51,7 @@ pipeline {
 
             env.CONFIG=config
             UserName=${config['companyname.username']}
-            PassWord=${config['companyname.password
+            PassWord=${config['companyname.password']}
         }
     }
 }
