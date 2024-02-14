@@ -12,6 +12,7 @@ pipeline {
         }
         stage('stage@2'){
             steps{
+                env.WORKSPACE = workspace
                 sh '''
                      echo "$WORKSPACE"
                 '''    
