@@ -1,4 +1,4 @@
-def configFile = "$WORKSPACE/config.properties"
+def configFile = "config.properties"
 def config = [:]
 
 pipeline {
