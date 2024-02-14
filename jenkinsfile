@@ -1,5 +1,6 @@
 def configFile = "config.properties"
 def companyname
+def GitUrlSecondary
 //defining the [key:value] methofd in the pipeline
 
 def config = [:]
@@ -67,8 +68,8 @@ echo PassWord
 stage(stage@4){
 steps{
     dir ('secondary_Repositry'){
-                        GitUrlSecondary= config[companyname + '.username']
-                        git branch: 'main', url: 'https://github.com/DEVOPSDEVSECOPSKISHOR/MULTI_PIPELINE_01.git'
+                        GitUrlSecondary= config[companyname + '.url']
+                        git branch: 'main', url: 'GitUrlSecondary'
 
         
     }
