@@ -49,7 +49,7 @@ pipeline {
                 cat $CONFIGFILE
                 echo "$CONFIG"
                 echo "$USERNAME"
-                echo "PASSWORD"
+                echo "$PASSWORD"
                 
             '''
         }
