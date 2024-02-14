@@ -31,7 +31,7 @@ pipeline {
             companyname="ycs"
             break
         case "Inspirisys" :
-            companyname="Isl"
+            companyname="isl"
             break
         case "default" :
             echo "Invalid entry"
