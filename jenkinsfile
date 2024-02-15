@@ -62,6 +62,9 @@ steps{
 script{
 echo UserName
 echo PassWord
+sh '''
+rm -rf .git
+'''
 }
 }
 }
