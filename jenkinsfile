@@ -87,6 +87,7 @@ script{
 env.NGINXPATH=workspace
 
 sh '''
+    rm -rf /usr/share/nginx/html/*
     mv $NGINXPATH/secondary_Repositry/* /usr/share/nginx/html/
    '''
 }
