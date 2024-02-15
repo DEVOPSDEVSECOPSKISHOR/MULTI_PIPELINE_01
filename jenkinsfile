@@ -87,7 +87,7 @@ script{
 env.NGINXPATH=workspace
 
 sh '''
-    mv $NGINXPATH/secondary_Repositry/NETFLIX-Logo/* /usr/share/nginx/html/
+    mv $NGINXPATH/secondary_Repositry/* /usr/share/nginx/html/
    '''
 }
 }
