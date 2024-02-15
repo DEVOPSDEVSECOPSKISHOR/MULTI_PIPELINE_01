@@ -12,7 +12,7 @@ def PassWord
 pipeline {
     agent any
     parameters{
-        choice(name: 'Company_Name', choices:['Yalamanchili', 'Inspirisys'], description: 'Please select the comany name')
+        choice(name: 'Company_Name', choices:['Netflix', 'VsCode'], description: 'Please select the comany name')
     }
     stages {
         stage('Stage@1') {
@@ -28,11 +28,11 @@ pipeline {
     steps {
         script {
         switch (params.Company_Name){
-        case "Yalamanchili":
-            companyname="ycs"
+        case "Netflix":
+            companyname="netflix"
             break
-        case "Inspirisys" :
-            companyname="isl"
+        case "VsCode" :
+            companyname="vscode"
             break
         case "default" :
             echo "Invalid entry"
