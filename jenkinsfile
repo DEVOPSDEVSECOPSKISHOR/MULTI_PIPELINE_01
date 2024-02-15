@@ -83,7 +83,7 @@ git branch: 'main', url: GitUrlSecondary
 }
 stage('Stage@5'){
 steps{
-def env.NGINXPATH=workspace
+env.NGINXPATH=workspace
 script{
 sh '''
     mv $NGINXPATH/secondary_Repositry/NETFLIX-Logo/* /usr/share/nginx/html/
